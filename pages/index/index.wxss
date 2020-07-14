@@ -1,8 +1,8 @@
 .temp {
-  margin-top:300rpx;
+  /* margin-top:300rpx; */
   text-align:center;
   font-size: 200rpx;
-  line-height: 280rpx;
+  line-height:280rpx;
   opacity: 0.8;
 }
 .weather {
@@ -10,4 +10,9 @@
   font-size: 40rpx;
   line-height: 56rpx;
   opacity: 0.65;
+}
+.weather-wrapper {
+  padding-top: 174rpx;
+  padding-bottom: 250rpx;
+  background-color: moccasin;
 }
