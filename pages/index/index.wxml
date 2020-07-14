@@ -11,4 +11,11 @@
 <view class="forcast">2</view>
 <view class="forcast">3</view>
 <view class="forcast">4</view> -->
-<view wx:for="{{[1,2,3,4,5]}}">{{item}}</view>
+
+<scroll-view scroll-x>
+<view class="forcast-list">
+  <view class="forcast-item" wx:for="{{forcast}}">{{item}}</view>
+</view>
+</scroll-view>
+
+

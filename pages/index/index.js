@@ -18,7 +18,8 @@ Page({
   data: {
     nowTemp: '',
     nowWeather: '',
-    nowWeatherBackground: ''
+    nowWeatherBackground: '',
+    forcast: [1,2,3,4,5,6,7,8,9],
   },
   onPullDownRefresh() {
     this.getNow(()=>{
@@ -43,7 +44,8 @@ Page({
         this.setData({
           nowTemp: temp,
           nowWeather: weatherMap[weather],
-          nowWeatherBackground: '/images/'+weather+'-bg.png'
+          nowWeatherBackground: '/images/'+weather+'-bg.png',
+          
         })
 
         wx.setNavigationBarColor({
