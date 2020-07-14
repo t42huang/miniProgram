@@ -16,8 +16,8 @@ const weatherColorMap = {
  }
 Page({
   data: {
-    nowTemp: '1',
-    nowWeather: '雪',
+    nowTemp: '',
+    nowWeather: '',
     nowWeatherBackground: ''
   },
   onPullDownRefresh() {
