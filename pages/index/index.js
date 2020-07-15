@@ -18,8 +18,10 @@ Page({
   data: {
     nowTemp: '',
     nowWeather: '',
-    nowWeatherBackground: '',
+    nowWeatherBackground: "",
     hourlyWeather: [],
+    todayTemp: "",
+    todayDate: ""
   },
 
   onLoad(){
@@ -37,11 +39,11 @@ Page({
       data: {
         city: '广州市'
       },
-      success: res=> { //function
-        console.log(res)
+      success: res=> {  
         let result = res.data.result
         this.setNow(result)
         this.setHourlyWeather(result)
+        this.setToday(result)
       },
       complete: ()=>{
         callback && callback()
@@ -54,7 +56,7 @@ Page({
     this.setData({
       nowTemp: temp + '°',
       nowWeather: weatherMap[weather],
-      nowWeatherBackground: '/images/'+weather+'-bg.png',
+      nowWeatherBackground: '/images/'+weather+'-bg.png'
     })
     wx.setNavigationBarColor({
       frontColor: '#000000',
@@ -72,13 +74,19 @@ Page({
         time: (i*3+nowHour)%24 +'时',
         iconPath: '/images/'+forecast[i].weather +'-icon.png',
         temp: forecast[i].temp +'°'
-      }
-      )
+      })
     }
     hourlyWeather[0].time = '现在'
     this.setData({
       hourlyWeather: hourlyWeather
     })   
+  },
+  setToday(result){
+    let date = new Date()
+    this.setData({
+      todayTemp: `${result.today.minTemp}° - ${result.today.maxTemp}°`,
+      todayDate: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} 今天`
+    })
   }
 })
 
